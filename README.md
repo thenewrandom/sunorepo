@@ -1,553 +1,305 @@
 <p align="center">
-  <img src="https://img.shields.io/badge/🎵-ACE--Step_UI-ff69b4?style=for-the-badge&labelColor=1a1a1a" alt="ACE-Step UI" height="60">
-</p>
-
-<h1 align="center">ACE-Step UI</h1>
-
-<p align="center">
-  <strong>The Ultimate Open Source Suno Alternative</strong><br>
-  <em>Seamless integration with <a href="https://github.com/ace-step/ACE-Step-1.5">ACE-Step 1.5</a> - The Open Source AI Music Generation Model</em>
+  <img
+    src="https://raw.githubusercontent.com/SegFault42/HeliosGen/main/public/HG.svg"
+    alt="HeliosGen"
+    width="64"
+  />
 </p>
 
 <p align="center">
-  <a href="https://www.youtube.com/@Ambsd-yy7os">
-    <img src="https://img.shields.io/badge/▶_Subscribe-YouTube-FF0000?style=for-the-badge&logo=youtube" alt="Subscribe on YouTube">
-  </a>
-  <a href="https://x.com/AmbsdOP">
-    <img src="https://img.shields.io/badge/Follow-@AmbsdOP-1DA1F2?style=for-the-badge&logo=x&logoColor=white" alt="Follow on X">
-  </a>
-  <a href="https://webdesignstudio.london">
-    <img src="https://img.shields.io/badge/Web_Design-webdesignstudio.london-d4ff00?style=for-the-badge&labelColor=000000" alt="Web Design Studio London">
-  </a>
-</p>
-
-<p align="center">
-  <a href="#-demo">Demo</a> •
-  <a href="#-why-ace-step-ui">Why ACE-Step</a> •
-  <a href="#-features">Features</a> •
-  <a href="#-installation">Installation</a> •
-  <a href="#-usage">Usage</a> •
-  <a href="#-contributing">Contributing</a>
-</p>
-
-<p align="center">
-  <img src="https://img.shields.io/badge/React-18.3-61DAFB?style=flat-square&logo=react" alt="React">
-  <img src="https://img.shields.io/badge/TypeScript-5.x-3178C6?style=flat-square&logo=typescript" alt="TypeScript">
-  <img src="https://img.shields.io/badge/TailwindCSS-3.x-06B6D4?style=flat-square&logo=tailwindcss" alt="TailwindCSS">
-  <img src="https://img.shields.io/badge/SQLite-Local_First-003B57?style=flat-square&logo=sqlite" alt="SQLite">
-  <img src="https://img.shields.io/badge/License-MIT-green?style=flat-square" alt="License">
-  <img src="https://img.shields.io/github/stars/fspecii/ace-step-ui?style=flat-square" alt="Stars">
+  <strong>Build AI image & video pipelines visually.</strong><br/>
+  Chain prompts, models, reference images, and automations on an infinite canvas.
 </p>
 
 ---
 
-## 🎬 Demo
+# ⬇️ Download
+
+**HeliosGen is a desktop app.** Grab the latest build for your OS from the
+releases page — no account, no server, no cloud setup:
+
+### 👉 **[Download from the Releases page](https://github.com/SegFault42/HeliosGen/releases)**
+
+| OS | File |
+| --- | --- |
+| **macOS** (Apple Silicon) | `HeliosGen_<version>_aarch64.dmg` |
+| **Windows** | 🙋 **looking for a contributor to build & submit** — see below |
+| **Linux** | 🙋 **looking for a contributor to build & submit** — see below |
+
+> Only the builds actually attached to the latest release are available. macOS
+> is published today. **Tauri can't cross-compile, so Windows and Linux builds
+> need someone on those platforms** — if you can run `npm run desktop:build` on
+> Windows or Linux (see the **Build from source** section below), please open a
+> PR or attach the artifacts to an issue and we'll add them to the release.
+
+The app is **not code-signed** yet:
+
+- **macOS** — right-click the app → **Open** (once), or run
+  `xattr -cr /Applications/HeliosGen.app`.
+- **Windows** — SmartScreen: **More info → Run anyway**.
+
+---
+
+## 🚀 First run
+
+1. Launch HeliosGen.
+2. Open **Settings → API Keys** and paste your **[kie.ai](https://kie.ai?ref=25abb3f2236cbff9780ab9c2f84479ec) API key**.
+3. Start generating.
+
+Everything stays on your machine. Generations, uploads, folders, workflows and
+settings live in a local database; media is saved to a local folder:
+
+| OS | Data location |
+| --- | --- |
+| macOS | `~/Library/Application Support/cash.sdd.helios.desktop/` |
+| Windows | `%APPDATA%\cash.sdd.helios.desktop\` |
+| Linux | `~/.local/share/cash.sdd.helios.desktop/` |
+
+Delete that folder to reset the app.
+
+---
+
+# 📸 Screenshots
+## ✨ Simple Image & Video Generation
 
 <p align="center">
-  <a href="https://www.youtube.com/watch?v=8zg0Xi36qGc">
-    <img src="https://img.shields.io/badge/▶_Watch_Full_Demo-YouTube-FF0000?style=for-the-badge&logo=youtube" alt="Watch Demo on YouTube">
-  </a>
+  <img width="2912" height="2292" alt="Image generation example" src="https://github.com/user-attachments/assets/8263b83d-addb-4af8-99d1-d8406c52be2c" />
 </p>
+
+---
+
+## 🔄 Workflow Generation
 
 <p align="center">
-  <img src="docs/demo.gif" alt="ACE-Step UI - Open Source Suno Alternative" width="100%">
+  <img width="1459" height="1146" alt="Workflow generation example" src="https://github.com/user-attachments/assets/fc7f1109-76d1-4af0-b91d-0e915bcf5461" />
 </p>
+
+---
+
+## 🧠 Native JSON Prompt Preview
 
 <p align="center">
-  <em>Generate professional AI music with a Spotify-like interface - 100% free and local</em>
+  <img width="886" alt="JSON prompt preview" src="https://github.com/user-attachments/assets/dedbdf4f-9d52-4e29-ad6e-a2e67e341a73" />
 </p>
 
 ---
 
-## 🚀 Why ACE-Step UI?
-
-**Tired of paying $10+/month for Suno or Udio?** ACE-Step 1.5 is the **open source Suno killer** that runs locally on your own GPU - and ACE-Step UI gives you a **beautiful, professional interface** to harness its full power.
-
-| Feature | Suno/Udio | ACE-Step UI |
-|---------|-----------|-------------|
-| **Cost** | $10-50/month | **FREE forever** |
-| **Privacy** | Cloud-based | **100% local** |
-| **Ownership** | Licensed | **You own everything** |
-| **Customization** | Limited | **Full control** |
-| **Queue Limits** | Restricted | **Unlimited** |
-| **Commercial Use** | Expensive tiers | **No restrictions** |
-
-### What Makes ACE-Step 1.5 Special?
-
-- **State-of-the-art quality** rivaling commercial services
-- **Full song generation** up to 4+ minutes with vocals
-- **Runs locally** - no internet required after setup
-- **Open source** - inspect, modify, improve
-- **Active development** - constant improvements
-
----
-
-## ✨ Features
-
-### 🎵 AI Music Generation
-| Feature | Description |
-|---------|-------------|
-| **Full Song Generation** | Create complete songs with vocals and lyrics up to 4+ minutes |
-| **Instrumental Mode** | Generate instrumental tracks without vocals |
-| **Custom Mode** | Fine-tune BPM, key, time signature, and duration |
-| **Style Tags** | Define genre, mood, tempo, and instrumentation |
-| **Batch Generation** | Generate multiple variations at once |
-| **AI Enhance** | Enrich genre tags into detailed captions with proper BPM/key/time |
-| **Thinking Mode** | Let AI reason about structure and generate audio codes |
-
-### 🎨 Advanced Parameters
-| Feature | Description |
-|---------|-------------|
-| **Reference Audio** | Use any audio file as a style reference |
-| **Audio Cover** | Transform existing audio with new styles |
-| **Repainting** | Regenerate specific sections of a track |
-| **Seed Control** | Reproduce exact generations for consistency |
-| **Inference Steps** | Control quality vs speed tradeoff |
-
-### 🎤 Lyrics & Prompts
-| Feature | Description |
-|---------|-------------|
-| **Lyrics Editor** | Write and format lyrics with structure tags |
-| **Format Assistant** | AI-powered caption and lyrics formatting |
-| **Prompt Templates** | Quick-start with genre presets |
-| **Reuse Prompts** | Clone settings from any previous generation |
-
-### 🎧 Professional Interface
-| Feature | Description |
-|---------|-------------|
-| **Spotify-Inspired UI** | Clean, modern design with dark/light mode |
-| **Bottom Player** | Full-featured player with waveform and progress |
-| **Library Management** | Browse, search, and organize all your tracks |
-| **Likes & Playlists** | Organize favorites into custom playlists |
-| **Real-time Progress** | Live generation progress with queue position |
-| **LAN Access** | Use from any device on your local network |
-
-### 🛠️ Built-in Tools
-| Feature | Description |
-|---------|-------------|
-| **Audio Editor** | Trim, fade, and apply effects with AudioMass |
-| **Stem Extraction** | Separate vocals, drums, bass, and other with Demucs |
-| **Video Generator** | Create music videos with Pexels backgrounds |
-| **Gradient Covers** | Beautiful procedural album art (no internet needed) |
-
----
-
-## 💻 Tech Stack
-
-| Layer | Technologies |
-|-------|-------------|
-| **Frontend** | React 18, TypeScript, TailwindCSS, Vite |
-| **Backend** | Express.js, SQLite, better-sqlite3 |
-| **AI Engine** | [ACE-Step 1.5](https://github.com/ace-step/ACE-Step-1.5) (Gradio API) |
-| **Audio Tools** | AudioMass, Demucs, FFmpeg |
-
----
-
-## 📋 Requirements
-
-| Requirement | Specification |
-|-------------|---------------|
-| **Node.js** | 18 or higher |
-| **Python** | 3.10+ (3.11 recommended) OR Windows Portable Package |
-| **NVIDIA GPU** | 4GB+ VRAM (works without LLM), 12GB+ recommended (with LLM) |
-| **CUDA** | 12.8 (for Windows Portable Package) |
-| **FFmpeg** | For audio processing |
-| **uv** | Python package manager (recommended for standard install) |
-
----
-
-## ⚡ Quick Start
-
-### 🎯 Pinokio - 1-Click Install (Recommended for All Users!)
-
-The easiest way to get ACE-Step UI up and running on **any platform** — no terminal, no manual setup:
+## 💬 AI Prompt Improvement Assistant
 
 <p align="center">
-  <a href="https://beta.pinokio.co/apps/github-com-cocktailpeanut-ace-step-ui-pinokio">
-    <img src="https://img.shields.io/badge/⚡_Install_with_Pinokio-One_Click-ff69b4?style=for-the-badge&labelColor=1a1a1a" alt="Install with Pinokio" height="50">
-  </a>
+  <img width="872" height="502" alt="Prompt assistant interface" src="https://github.com/user-attachments/assets/17ba972c-bd8a-49a7-b367-4ef906fe3e17" />
 </p>
 
-> **[Pinokio](https://pinokio.computer)** handles everything automatically: Python, Node.js, dependencies, model downloads, and launching. Just click install and start making music.
+# ✨ HeliosGen
+
+HeliosGen is a free & open source visual AI workflow builder for image and video generation.
+
+Build reusable AI pipelines with:
+- infinite node-based workflows,
+- multi-model generation,
+- reference images,
+- automation chains,
+- all running 100% locally on your machine.
+
+No subscriptions.  
+No disappearing credits.  
+No vendor lock-in.  
+No cloud, no accounts — just a local app and your own kie.ai key.
 
 ---
 
-### 🪟 Windows - One-Click Start (Easiest!)
-```batch
-cd ace-step-ui
-start-all.bat
-```
-**That's it!** This starts everything: API + Backend + Frontend in one command.
+# 💳 Credits
 
-> **Note:** By default, it looks for ACE-Step in `..\ACE-Step-1.5`.
-> If yours is elsewhere, set `ACESTEP_PATH` first:
-> ```batch
-> set ACESTEP_PATH=C:\path\to\ACE-Step-1.5
-> start-all.bat
-> ```
+HeliosGen now works with <a href="https://kie.ai?ref=25abb3f2236cbff9780ab9c2f84479ec" target="_blank">kie.ai</a>.
 
-### 🪟 Windows - Manual Start
-```batch
-REM 1. Start ACE-Step Gradio (with API endpoints)
-cd C:\ACE-Step-1.5
-python_embeded\python -m acestep --port 8001 --enable-api --backend pt --server-name 127.0.0.1
+All credits are purchased directly on your own account and never expire.
 
-REM 2. Start ACE-Step UI (in another terminal)
-cd ace-step-ui
-start.bat
-```
+That means:
+- no monthly reset,
+- no lost credits,
+- no subscription lock-in,
+- and full ownership of your usage.
 
-### Linux / macOS - One-Click Start (Easiest!)
-```bash
-cd ace-step-ui
-./start-all.sh
-```
-**That's it!** This starts everything: Gradio + Backend + Frontend in one command.
-
-> **Note:** By default, it looks for ACE-Step in `../ACE-Step-1.5`.
-> If yours is elsewhere, set `ACESTEP_PATH` first:
-> ```bash
-> export ACESTEP_PATH=/path/to/ACE-Step-1.5
-> ./start-all.sh
-> ```
-> **To stop:** `./stop-all.sh`
-
-### Linux / macOS - Manual Start
-```bash
-# 1. Start ACE-Step Gradio with API (in ACE-Step-1.5 directory)
-cd /path/to/ACE-Step-1.5
-uv run acestep --port 8001 --enable-api --backend pt --server-name 127.0.0.1
-
-# 2. Start ACE-Step UI (in another terminal)
-cd ace-step-ui
-./start.sh
-```
-
-### Windows (Standard Installation)
-```batch
-REM 1. Start ACE-Step Gradio with API (in ACE-Step-1.5 directory)
-cd C:\path\to\ACE-Step-1.5
-uv run acestep --port 8001 --enable-api --backend pt --server-name 127.0.0.1
-
-REM 2. Start ACE-Step UI (in another terminal)
-cd ace-step-ui
-start.bat
-```
-
-Open **http://localhost:3000** and start creating!
+You only pay for what you generate.
 
 ---
 
-## 📦 Installation
+# 🚀 Features
 
-### 1. Install ACE-Step (The AI Engine)
+- Infinite node-based canvas
+- AI image & video generation
+- Drag-and-connect workflow system
+- Multi-model pipelines
+- Reference image support
+- Parallel & sequential pipeline execution
+- Real-time generation history
+- 100% local — your data never leaves your machine
+- Bring your own kie.ai key
+- Modern responsive UI
 
-#### 🪟 Windows Portable Package (Recommended for Windows)
+---
 
-**The easiest way to get started on Windows!** This package includes everything pre-configured:
+# ⚡ Supported Models
 
-1. **Download** [ACE-Step-1.5.7z](https://files.acemusic.ai/acemusic/win/ACE-Step-1.5.7z) (~5GB)
-2. **Extract** to `C:\ACE-Step-1.5` (or your preferred location)
-3. **Done!** The package includes `python_embeded` with all dependencies
+## Images
+- GPT Image 2 (OpenAI)
+- Nano Banana / Nano Banana 2 / Nano Banana 2 Lite / Nano Banana Pro (Google)
+- Seedream 5.0 Lite / Pro (Seedream)
+- Z-Image (Z-AI)
+- Grok Imagine (X)
 
-✅ **Works with 4GB GPU** - No LLM installation required
-✅ **CUDA 12.8** included
-✅ **Zero setup hassle**
+## Videos
+- Veo 3.1 Lite / Fast / Quality, Gemini Omni Video (Google)
+- Kling 3.0, Kling 3.0 Turbo, Motion Control 2.6 / 3.0 (Kling)
+- Seedance 2.0 / Fast / Mini (Bytedance)
+- Grok Imagine, Grok Imagine 1.5 preview (X)
+- HappyHorse (Alibaba)
 
-> **Note:** Thinking Mode (LLM features) is automatically disabled on GPUs with <12GB VRAM. You can still enable it manually if you have 12GB+.
+More models are coming.
 
-#### Standard Installation (All Platforms)
+---
+
+# 🏗️ Tech Stack
+
+| Layer | Technology |
+|---|---|
+| Desktop shell | Tauri 2 (Rust) |
+| App | Next.js + React + TypeScript (bundled Node sidecar) |
+| Database | SQLite (local) |
+| Storage | Local disk |
+| AI Backend | kie.ai |
+
+---
+
+# 🤖 Codex CLI (optional — alternate GPT Image 2 backend)
+
+Instead of routing GPT Image 2 through kie.ai credits, HeliosGen can generate through your own ChatGPT Codex subscription via [`codex-imagegen-cli`](https://github.com/jdmnk/codex-imagegen-cli). The desktop app picks up `codex` from your `PATH` automatically; if it's missing, the feature just shows **NOT CONFIGURED** and everything else keeps working.
+
+Requirements:
+- A ChatGPT Plus/Pro/Team/Enterprise account with Codex access
+- [`codex`](https://github.com/openai/codex) CLI installed on your machine
+- [`uv`](https://docs.astral.sh/uv/) (Python package manager)
+
+### 1. Install the Codex CLI
 
 ```bash
-# Clone ACE-Step 1.5 - the open source Suno alternative
-git clone https://github.com/ace-step/ACE-Step-1.5
-cd ACE-Step-1.5
+# macOS
+brew install codex
 
-# Create virtual environment and install
-uv venv
-uv pip install -e .
-
-# Models download automatically on first run (~5GB)
-cd ..
+# or, cross-platform
+npm install -g @openai/codex
 ```
 
-### 2. Install ACE-Step UI (This Repository)
-
-#### Linux / macOS
-```bash
-# Clone the UI
-git clone https://github.com/fspecii/ace-step-ui
-cd ace-step-ui
-
-# Run setup script (installs all dependencies)
-./setup.sh
-```
-
-#### Windows
-```batch
-REM Clone the UI
-git clone https://github.com/fspecii/ace-step-ui
-cd ace-step-ui
-
-REM Run setup script (installs all dependencies)
-setup.bat
-```
-
-#### Manual Installation (All Platforms)
+### 2. Install codex-imagegen-cli
 
 ```bash
-# Install frontend dependencies
+git clone https://github.com/jdmnk/codex-imagegen-cli.git
+cd codex-imagegen-cli
+uv sync --dev
+uv tool install -e .
+```
+
+This installs the `codex-imagegen` binary — make sure it's on your `PATH`.
+
+### 3. Log in
+
+Either:
+- run `codex login` in a terminal (opens a browser to sign in), **or**
+- open the app → **Settings → API Keys → Codex CLI → Connect Codex**, which walks you through a device-code login — visit the printed URL and enter the code, no terminal needed.
+
+> ⚠️ Starting a new login (either way) immediately invalidates any existing session on that machine — the CLI clears old credentials the moment a login attempt begins, whether or not it's ever completed. Only start one when the status badge below shows **NOT CONFIGURED**.
+
+### 4. Enable it for GPT Image 2
+
+In **Settings → Image Models**, set GPT Image 2's provider toggle to **Codex CLI**. The status badge in **Settings → API Keys** shows **READY** once both the CLI and login are in place.
+
+---
+
+# 🛠️ Build from source
+
+Prefer to build it yourself, or need a platform that isn't on the releases page
+yet? The whole app builds from this repo.
+
+Tauri does **not** cross-compile — build on the OS you want to target. Run
+`npm run desktop:build` on a Mac for the macOS build, on Windows for Windows,
+on Linux for Linux.
+
+> **Want to help ship Windows / Linux builds?** Build on that OS and send the
+> artifacts (PR or issue attachment) — they'll be added to the next release,
+> with credit.
+
+## Prerequisites (one-time, all platforms)
+
+| Tool | Notes |
+| --- | --- |
+| **Node 22+** | The bundled server uses `node:sqlite`. `nvm use 22`. |
+| **Rust** | `curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs \| sh` |
+| **Tauri system deps** | See <https://v2.tauri.app/start/prerequisites/> |
+
+Platform-specific system deps:
+
+- **macOS** — Xcode Command Line Tools: `xcode-select --install`
+- **Windows** — [Microsoft C++ Build Tools](https://visualstudio.microsoft.com/visual-cpp-build-tools/)
+  (Desktop development with C++) and [WebView2](https://developer.microsoft.com/microsoft-edge/webview2/)
+  (preinstalled on Windows 11)
+- **Linux** — `webkit2gtk-4.1`, `librsvg2`, `build-essential`, `curl`, `wget`,
+  `file`, `libssl-dev`, `libayatana-appindicator3-dev` (Debian/Ubuntu package
+  names; see the Tauri prerequisites page for other distros)
+
+## Build
+
+```bash
+git clone https://github.com/SegFault42/HeliosGen
+cd HeliosGen
 npm install
-
-# Install server dependencies
-cd server
-npm install
-cd ..
-
-# Copy environment file
-# Linux/macOS:
-cp server/.env.example server/.env
-# Windows:
-copy server\.env.example server\.env
+npm run desktop:build
 ```
 
----
+Artifacts land in `src-tauri/target/release/bundle/`:
 
-## 🎮 Usage
+| OS | Output |
+| --- | --- |
+| macOS | `macos/HeliosGen.app`, `dmg/HeliosGen_<ver>_<arch>.dmg` |
+| Windows | `msi/HeliosGen_<ver>_x64_en-US.msi`, `nsis/HeliosGen_<ver>_x64-setup.exe` |
+| Linux | `deb/`, `rpm/`, `appimage/HeliosGen_<ver>_amd64.AppImage` |
 
-### Step 1: Start ACE-Step Gradio Server
+The macOS build is **unsigned** — on first launch Gatekeeper blocks it.
+Right-click → Open, or `xattr -cr "src-tauri/target/release/bundle/macos/HeliosGen.app"`.
 
-**🪟 Windows Portable Package:**
-```batch
-cd C:\ACE-Step-1.5
-python_embeded\python -m acestep --port 8001 --enable-api --backend pt --server-name 127.0.0.1
-```
+## Develop (hot reload)
 
-**Linux / macOS:**
 ```bash
-cd /path/to/ACE-Step-1.5
-uv run acestep --port 8001 --enable-api --backend pt --server-name 127.0.0.1
+npm run desktop:dev
 ```
 
-**Windows (Standard Installation):**
-```batch
-cd C:\path\to\ACE-Step-1.5
-uv run acestep --port 8001 --enable-api --backend pt --server-name 127.0.0.1
-```
+Runs `next dev` and `tauri dev` together. The first run compiles the Rust shell
+(~1–2 min).
 
-Wait for "API endpoints enabled" before proceeding.
-
-### Step 2: Start ACE-Step UI
-
-**Linux / macOS:**
-```bash
-cd ace-step-ui
-./start.sh
-```
-
-**Windows:**
-```batch
-cd ace-step-ui
-start.bat
-```
-
-### Step 3: Create Music!
-
-| Access | URL |
-|--------|-----|
-| Local | http://localhost:3000 |
-| LAN (other devices) | http://YOUR_IP:3000 |
+See [`DESKTOP.md`](DESKTOP.md) for architecture, data locations, and signing &
+notarization.
 
 ---
 
-## ⚙️ Configuration
+# 🤝 Contributions
 
-Edit `server/.env`:
+Contributions are welcome.
 
-```env
-# Server
-PORT=3001
+If you find a bug, have an idea, or want to improve HeliosGen:
+- Open an issue
+- Submit a pull request
+- Share feedback or feature requests
 
-# ACE-Step Gradio URL (must match --port used when starting ACE-Step)
-ACESTEP_API_URL=http://localhost:8001
-
-# Database (local-first, no cloud)
-DATABASE_PATH=./data/acestep.db
-
-# Optional: Pexels API for video backgrounds
-PEXELS_API_KEY=your_key_here
-```
+All contributions are appreciated.
 
 ---
 
-## 🎼 Generation Modes
+# 📄 License
 
-### Simple Mode
-Just describe what you want. ACE-Step handles the rest.
-
-> "An upbeat pop song about summer adventures with catchy hooks"
-
-### Custom Mode
-Full control over every parameter:
-
-| Parameter | Description |
-|-----------|-------------|
-| **Lyrics** | Full lyrics with `[Verse]`, `[Chorus]` tags |
-| **Style** | Genre, mood, instruments, tempo |
-| **Duration** | 30-240 seconds |
-| **BPM** | 60-200 beats per minute |
-| **Key** | Musical key (C major, A minor, etc.) |
-
-### AI Enhance & Thinking Mode
-
-| Mode | What it does | Speed impact |
-|------|-------------|--------------|
-| **AI Enhance OFF** | Sends your style tags directly to the model | Fastest |
-| **AI Enhance ON** | LLM enriches your tags into a detailed caption and generates proper BPM, key, time signature | +10-20s |
-| **Thinking Mode** | Full LLM reasoning with audio code generation | Slowest, best quality |
-
-> **Tip:** If your genre tags (e.g. "pop, rock") produce ballad-like output, turn on **AI Enhance** for much better genre accuracy. No extra VRAM needed — the LLM runs on CPU with the PT backend.
-
-### Batch Size & Bulk Generation
-
-| Setting | Description |
-|---------|-------------|
-| **Batch Size** | Number of variations generated per job (1-4). Default is **1** for broad GPU compatibility. Higher values generate more variations but use more VRAM. **8GB GPU users should keep this at 1.** |
-| **Bulk Generate** | Queue multiple independent generation jobs (1-10). Each job runs sequentially, so this is safe for any GPU. |
-| **LM Backend** | Choose between **PT** (~1.6 GB VRAM) and **VLLM** (~9.2 GB VRAM). PT is the default and works on most GPUs. |
-
-> **Tip:** Both batch size and bulk count are remembered in your browser — set them once and they stick for future sessions.
-
----
-
-## 🔧 Built-in Tools
-
-| Tool | Description |
-|------|-------------|
-| **🎚️ Audio Editor** | Cut, trim, fade, and apply effects |
-| **🎤 Stem Extraction** | Separate vocals, drums, bass, other |
-| **🎬 Video Generator** | Create music videos with stock footage |
-| **🎨 Album Art** | Auto-generated gradient covers |
-
----
-
-## 🐛 Troubleshooting
-
-| Issue | Solution |
-|-------|----------|
-| **ACE-Step not reachable** | Ensure Gradio server is running with `--enable-api` flag (see Usage section) |
-| **CUDA out of memory** | Use `--backend pt` (default), set batch size to **1**, reduce duration, or disable Thinking Mode |
-| **4GB GPU - Out of memory** | Use **PT** backend (default), batch size **1**, and keep **Thinking Mode OFF**. LLM features require 12GB+ |
-| **Genre always sounds like ballad** | Enable **AI Enhance** toggle in the Style section — it enriches your tags with proper metadata |
-| **AttributeError: 'NoneType'** | Update to latest ACE-Step-1.5 (fix merged in PR #109) |
-| **Songs show 0:00 duration** | Install FFmpeg: `sudo apt install ffmpeg` (Linux) or download from [ffmpeg.org](https://ffmpeg.org) (Windows) |
-| **LAN access not working** | Check firewall allows ports 3000 and 3001 |
-
----
-
-## 🤝 Contributing
-
-**We need your help to make ACE-Step UI even better!**
-
-This is a community-driven project and contributions are what make open source amazing. Whether you're fixing bugs, adding features, improving documentation, or sharing ideas - every contribution counts!
-
-### Ways to Contribute
-
-- 🐛 **Report bugs** - Found an issue? Open a GitHub issue
-- 💡 **Suggest features** - Have an idea? We'd love to hear it
-- 🔧 **Submit PRs** - Code contributions are always welcome
-- 📖 **Improve docs** - Help others get started
-- ⭐ **Star the repo** - Show your support!
-
-### How to Contribute
-
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
-
----
-
-## 📣 Stay Connected
-
-<p align="center">
-  <a href="https://www.youtube.com/@Ambsd-yy7os">
-    <img src="https://img.shields.io/badge/YouTube-Subscribe_for_Tutorials-FF0000?style=for-the-badge&logo=youtube" alt="YouTube">
-  </a>
-</p>
-
-<p align="center">
-  <a href="https://x.com/AmbsdOP">
-    <img src="https://img.shields.io/badge/X_(Twitter)-Follow_for_Updates-1DA1F2?style=for-the-badge&logo=x&logoColor=white" alt="X/Twitter">
-  </a>
-</p>
-
-<p align="center">
-  <strong>Subscribe and follow for:</strong><br>
-  🎥 Video tutorials and demos<br>
-  🚀 New feature announcements<br>
-  💡 Tips and tricks<br>
-  🎵 AI music generation news
-</p>
-
----
-
-## 💼 Need a Website Like This?
-
-If you like the engineering and design behind ACE-Step UI and want something similar built for your business, the same team offers professional web development services.
-
-**We build:**
-- 🌐 Custom websites & web apps — Next.js, Astro, WordPress, React
-- 🤖 AI integrations & automations — OpenAI, Anthropic, custom LLM workflows
-- 📱 Mobile apps — iOS, Android, React Native
-- 🎨 UI/UX design tailored to your brand
-
-<p align="center">
-  <a href="https://webdesignstudio.london">
-    <img src="https://img.shields.io/badge/Get_in_Touch-webdesignstudio.london-d4ff00?style=for-the-badge&labelColor=000000" alt="webdesignstudio.london">
-  </a>
-</p>
-
-<p align="center">
-  <em>From the makers of ACE-Step UI — we ship production-grade web experiences.</em>
-</p>
-
----
-
-## 👤 About the Author
-
-ACE-Step UI is built and maintained by **Vali** — open-source developer and founder of [Web Design Studio London](https://webdesignstudio.london), a specialist web design and development studio serving London businesses and international clients.
-
-Web Design Studio London builds high-performance Next.js websites, ecommerce platforms, and AI-integrated web applications — the same technical approach that powers this project.
-
-If you need a professional website, ecommerce build, or AI integration for your business, visit [webdesignstudio.london](https://webdesignstudio.london).
-
----
-
-## 🙏 Credits
-
-- **[ACE-Step](https://github.com/ace-step/ACE-Step-1.5)** - The revolutionary open source AI music generation model
-- **[AudioMass](https://github.com/pkalogiros/AudioMass)** - Web audio editor
-- **[Demucs](https://github.com/facebookresearch/demucs)** - Audio source separation
-- **[Pexels](https://www.pexels.com)** - Stock video backgrounds
-
----
-
-## 📄 License
-
-This project is open source under the [MIT License](LICENSE).
+MIT License
 
 ---
 
 <p align="center">
-  <strong>⭐ If ACE-Step UI helps you create amazing music, please star this repo! ⭐</strong>
+  Built for creators building the future of AI workflows.
 </p>
 
-<p align="center">
-  <em>Made with ❤️ for the open-source AI music community</em>
-</p>
-
-<p align="center">
-  <strong>Stop paying for Suno. Start creating with ACE-Step.</strong>
-</p>

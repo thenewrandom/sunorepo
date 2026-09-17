@@ -1,96 +1,67 @@
-# Dependencies
-node_modules/
-server/node_modules/
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
-# Build outputs
-dist/
-dist-ssr/
-build/
-*.tsbuildinfo
+# dependencies
+/node_modules
+/.pnp
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/versions
 
-# Environment files
-.env
-.env.local
-.env.*.local
-*.local
-server/.env
+# testing
+/coverage
 
-# Database (SQLite)
-server/data/*.db
-server/data/*.db-shm
-server/data/*.db-wal
-!server/data/.gitkeep
+# next.js
+/.next/
+/out/
 
-# Generated audio files
-server/public/audio/*.mp3
-server/public/audio/*.flac
-server/public/audio/*.wav
-server/public/audio/*/
-!server/public/audio/.gitkeep
+# production
+/build
 
-# Reference tracks (user uploads)
-server/public/audio/reference-tracks/*
-!server/public/audio/reference-tracks/.gitkeep
+# misc
+.DS_Store
+*.pem
 
-# User uploads
-server/public/uploads/
-
-# Logs
-logs/
-*.log
+# debug
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-pnpm-debug.log*
-lerna-debug.log*
+.pnpm-debug.log*
 
-# Editor/IDE
-.vscode/*
-!.vscode/extensions.json
-.idea/
-*.suo
-*.ntvs*
-*.njsproj
-*.sln
-*.sw?
-*.swp
-*.swo
-*~
+# env files (can opt-in for committing if needed)
+.env*
+!.env.example
 
-# OS files
-.DS_Store
-Thumbs.db
+# vercel
+.vercel
 
-# Vite cache
-.vite/
+# typescript
+*.tsbuildinfo
+next-env.d.ts
+.job-store.json
+.codex-login-store.json
 
-# Cache
-.cache/
-*.cache
+# Guest mode — local DB and generated media
+/data/*.json
+/data/*.db
+/data/*.db-shm
+/data/*.db-wal
+/public/generated/**
+!/public/generated/.gitkeep
 
-# Test coverage
-coverage/
-
-# Temporary files
-tmp/
-temp/
-*.tmp
-
-# Demucs working files
-server/public/demucs-web/output/
-
-# Python
-__pycache__/
-*.py[cod]
-.venv/
-
-# Misc
-ComfyUI/
-comfyui/
-ACE-Step-1.5/
-
-# External editors (wavacity is 184MB - clone separately if needed)
-wavacity-editor/
-
-# Script logs
-logs/
+# Tauri desktop build artifacts
+/src-tauri/target/
+/src-tauri/loader/target/
+/src-tauri/gen/
+/src-tauri/server/
+/src-tauri/binaries/
+# Mobile icon sets Tauri regenerates on build — desktop-only project
+/src-tauri/icons/android/
+/src-tauri/icons/ios/
+/src-tauri/icons/Square*Logo.png
+/src-tauri/icons/StoreLogo.png
+# Signing / notarization secrets
+/scripts/desktop/sign.env
+/src-tauri/.node-cache/
