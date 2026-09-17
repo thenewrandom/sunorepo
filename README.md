@@ -1,305 +1,164 @@
-<p align="center">
-  <img
-    src="https://raw.githubusercontent.com/SegFault42/HeliosGen/main/public/HG.svg"
-    alt="HeliosGen"
-    width="64"
-  />
-</p>
+# OpenHiggsfield AI — Open-Source Alternative to Higgsfield AI
 
-<p align="center">
-  <strong>Build AI image & video pipelines visually.</strong><br/>
-  Chain prompts, models, reference images, and automations on an infinite canvas.
-</p>
+> **The free, open-source alternative to Higgsfield AI.** Generate images and
+> videos with 38 models from one prompt bar — no closed ecosystem, no studio
+> subscription.
 
----
+## 🌐 Try it Online — No Install Required
 
-# ⬇️ Download
+**Hosted version:** [openhiggsfield.ai](https://openhiggsfield.ai)
 
-**HeliosGen is a desktop app.** Grab the latest build for your OS from the
-releases page — no account, no server, no cloud setup:
-
-### 👉 **[Download from the Releases page](https://github.com/SegFault42/HeliosGen/releases)**
-
-| OS | File |
-| --- | --- |
-| **macOS** (Apple Silicon) | `HeliosGen_<version>_aarch64.dmg` |
-| **Windows** | 🙋 **looking for a contributor to build & submit** — see below |
-| **Linux** | 🙋 **looking for a contributor to build & submit** — see below |
-
-> Only the builds actually attached to the latest release are available. macOS
-> is published today. **Tauri can't cross-compile, so Windows and Linux builds
-> need someone on those platforms** — if you can run `npm run desktop:build` on
-> Windows or Linux (see the **Build from source** section below), please open a
-> PR or attach the artifacts to an issue and we'll add them to the release.
-
-The app is **not code-signed** yet:
-
-- **macOS** — right-click the app → **Open** (once), or run
-  `xattr -cr /Applications/HeliosGen.app`.
-- **Windows** — SmartScreen: **More info → Run anyway**.
+Image and Video in one studio, in the browser — no Node.js, no setup. Add your
+platform key (`id:secret`) to start generating. The studio itself is free.
 
 ---
 
-## 🚀 First run
+**Why OpenHiggsfield AI instead of Higgsfield AI?**
 
-1. Launch HeliosGen.
-2. Open **Settings → API Keys** and paste your **[kie.ai](https://kie.ai?ref=25abb3f2236cbff9780ab9c2f84479ec) API key**.
-3. Start generating.
-
-Everything stays on your machine. Generations, uploads, folders, workflows and
-settings live in a local database; media is saved to a local folder:
-
-| OS | Data location |
-| --- | --- |
-| macOS | `~/Library/Application Support/cash.sdd.helios.desktop/` |
-| Windows | `%APPDATA%\cash.sdd.helios.desktop\` |
-| Linux | `~/.local/share/cash.sdd.helios.desktop/` |
-
-Delete that folder to reset the app.
+- **Free & open-source** — no studio subscription, no vendor lock-in
+- **Self-hosted** — clone it, run it, change it
+- **Your key** — generate with your own platform key
+- **38 models** — 8 image, 30 video, one catalog, one composer
 
 ---
 
-# 📸 Screenshots
-## ✨ Simple Image & Video Generation
-
-<p align="center">
-  <img width="2912" height="2292" alt="Image generation example" src="https://github.com/user-attachments/assets/8263b83d-addb-4af8-99d1-d8406c52be2c" />
-</p>
+Next.js 16 App Router on Vercel · React 19 · plain CSS · Zustand · pnpm
 
 ---
 
-## 🔄 Workflow Generation
+## Features
 
-<p align="center">
-  <img width="1459" height="1146" alt="Workflow generation example" src="https://github.com/user-attachments/assets/fc7f1109-76d1-4af0-b91d-0e915bcf5461" />
-</p>
+### Generate
 
----
+- **One composer for Image and Video.** A single prompt bar drives both; the
+  model you pick decides image or video. `⌘/Ctrl + Enter` submits.
+- **38 models in the catalog** — 8 image, 30 video: Soul 2, Soul Cinema, Seedance
+  2.5 (Edit / Extend), Seedance 2.0 (Fast / Mini), Kling 3 (Turbo / Std / Pro / 4K / Motion), Wan, Flux,
+  Ideogram, Recraft, LTX, MiniMax, PixVerse, Grok, Qwen and more. Searchable
+  picker.
+- **Per-model settings.** Aspect ratio, resolution, duration, output format,
+  audio, batch size, prompt enhancement — each model declares its own allow-list
+  and the studio renders exactly that. No parallel hardcoded list.
+- **Media inputs by role.** Start frame, end frame, references, video and audio,
+  each with the per-role cap the model declares. Files upload to Vercel Blob and
+  become public URLs the generate request can carry.
+- **Asset picker.** Attach from your uploads library or from any finished run in
+  history — two tabs over one library, filtered to the role's kind.
+- **Batch.** Up to 4 results per press. Models with a native count setting use it;
+  the rest are submitted once per result, each clearing its own tile.
+- **Live run lifecycle.** Skeletons open in the grid on submit, the request is
+  polled every 4s until a terminal status (10-minute deadline), and each finished
+  result blooms into place on its own clock.
 
-## 🧠 Native JSON Prompt Preview
+### Gallery
 
-<p align="center">
-  <img width="886" alt="JSON prompt preview" src="https://github.com/user-attachments/assets/dedbdf4f-9d52-4e29-ad6e-a2e67e341a73" />
-</p>
+- **Four scopes** — Image, Video, Assets (every finished run) and Favorites —
+  as an arrow-key-navigable tab rail.
+- **Masonry grid** of real runs at their true aspect ratio, newest first, with a
+  gradient placeholder while media loads.
+- **Per-tile actions**: reuse, favorite, delete, select.
+- **Reuse restores model, settings and prompt**, so the same run can be
+  re-rendered, not just re-typed.
+- **Viewer.** Full-size media with prompt (copy in one click), model, resolved
+  settings, timestamp, download, favorite and Recreate.
+- **Selection mode.** Click a tile's checkbox to enter; shift-click extends a
+  range. Bulk download (sequential, with progress and a report of any files the
+  CDN refused), bulk favorite/unfavorite, bulk delete. `Esc` exits.
+- **Undo.** Deletion is reversible for 6 seconds via a bar with a draining
+  hairline, in the strip the composer already reserves.
+- **Empty states** that hand you a starter prompt instead of a blank grid.
 
----
+### State and errors
 
-## 💬 AI Prompt Improvement Assistant
-
-<p align="center">
-  <img width="872" height="502" alt="Prompt assistant interface" src="https://github.com/user-attachments/assets/17ba972c-bd8a-49a7-b367-4ef906fe3e17" />
-</p>
-
-# ✨ HeliosGen
-
-HeliosGen is a free & open source visual AI workflow builder for image and video generation.
-
-Build reusable AI pipelines with:
-- infinite node-based workflows,
-- multi-model generation,
-- reference images,
-- automation chains,
-- all running 100% locally on your machine.
-
-No subscriptions.  
-No disappearing credits.  
-No vendor lock-in.  
-No cloud, no accounts — just a local app and your own kie.ai key.
-
----
-
-# 💳 Credits
-
-HeliosGen now works with <a href="https://kie.ai?ref=25abb3f2236cbff9780ab9c2f84479ec" target="_blank">kie.ai</a>.
-
-All credits are purchased directly on your own account and never expire.
-
-That means:
-- no monthly reset,
-- no lost credits,
-- no subscription lock-in,
-- and full ownership of your usage.
-
-You only pay for what you generate.
-
----
-
-# 🚀 Features
-
-- Infinite node-based canvas
-- AI image & video generation
-- Drag-and-connect workflow system
-- Multi-model pipelines
-- Reference image support
-- Parallel & sequential pipeline execution
-- Real-time generation history
-- 100% local — your data never leaves your machine
-- Bring your own kie.ai key
-- Modern responsive UI
+- **History persists** in IndexedDB in this browser (60 records). Favorites are
+  a deliberate keep and never age out of the cap. Result URLs belong to the
+  generation platform, so old history can outlive its CDN lifetime and show gaps.
+- **Failed, NSFW and canceled runs** are recorded as failed tiles carrying the
+  reason and a retry that restores the prompt and model.
+- **Your own platform key.** Entered in a modal, stored by a server action in an
+  httpOnly cookie. A missing key opens the modal — it never fails silently. The
+  topbar lamp states whether a key is held and whether a run is in flight.
 
 ---
 
-# ⚡ Supported Models
+## Architecture
 
-## Images
-- GPT Image 2 (OpenAI)
-- Nano Banana / Nano Banana 2 / Nano Banana 2 Lite / Nano Banana Pro (Google)
-- Seedream 5.0 Lite / Pro (Seedream)
-- Z-Image (Z-AI)
-- Grok Imagine (X)
+Each generate is one object: `{ model, prompt, media, settings }`.
 
-## Videos
-- Veo 3.1 Lite / Fast / Quality, Gemini Omni Video (Google)
-- Kling 3.0, Kling 3.0 Turbo, Motion Control 2.6 / 3.0 (Kling)
-- Seedance 2.0 / Fast / Mini (Bytedance)
-- Grok Imagine, Grok Imagine 1.5 preview (X)
-- HappyHorse (Alibaba)
-
-More models are coming.
-
----
-
-# 🏗️ Tech Stack
-
-| Layer | Technology |
-|---|---|
-| Desktop shell | Tauri 2 (Rust) |
-| App | Next.js + React + TypeScript (bundled Node sidecar) |
-| Database | SQLite (local) |
-| Storage | Local disk |
-| AI Backend | kie.ai |
+- **The UI builds that object** and hands it to a server action. The action
+  resolves it against the catalog and maps it to the generation API's own
+  fields (`image_urls`, `aspect_ratio`, …).
+- **Server actions are the only caller.** The browser never talks to the
+  generation API. Submit is `POST /{model}`; status is
+  `GET /requests/{id}/status`. Auth is `Authorization: Key <api_key>`.
+- **The catalog is the source of truth** (`src/generation/catalog/`). A new entry
+  appears in the picker, brings its own settings rail and media roles, and needs
+  no studio changes.
+- **Five small Zustand stores** — shared image/video prompt, shared image/video
+  media, `settings[modelId]`, and a tiny `active` store. No store per model.
+- **Uploads** go client-direct to Vercel Blob through `/api/blob`, which issues
+  scoped tokens. `blob:` URLs are preview-only.
 
 ---
 
-# 🤖 Codex CLI (optional — alternate GPT Image 2 backend)
-
-Instead of routing GPT Image 2 through kie.ai credits, HeliosGen can generate through your own ChatGPT Codex subscription via [`codex-imagegen-cli`](https://github.com/jdmnk/codex-imagegen-cli). The desktop app picks up `codex` from your `PATH` automatically; if it's missing, the feature just shows **NOT CONFIGURED** and everything else keeps working.
-
-Requirements:
-- A ChatGPT Plus/Pro/Team/Enterprise account with Codex access
-- [`codex`](https://github.com/openai/codex) CLI installed on your machine
-- [`uv`](https://docs.astral.sh/uv/) (Python package manager)
-
-### 1. Install the Codex CLI
+## Getting started
 
 ```bash
-# macOS
-brew install codex
-
-# or, cross-platform
-npm install -g @openai/codex
+pnpm install
+pnpm dev            # http://localhost:3000
 ```
 
-### 2. Install codex-imagegen-cli
+Open the studio, press **Add key**, and paste your platform key as `id:secret`.
+
+### Environment
 
 ```bash
-git clone https://github.com/jdmnk/codex-imagegen-cli.git
-cd codex-imagegen-cli
-uv sync --dev
-uv tool install -e .
+HF_API_BASE_URL=                      # generation API origin, server only
+OPEN_HIGGSFIELD_READ_WRITE_TOKEN=     # Vercel Blob read-write token
 ```
 
-This installs the `codex-imagegen` binary — make sure it's on your `PATH`.
+### Commands
 
-### 3. Log in
-
-Either:
-- run `codex login` in a terminal (opens a browser to sign in), **or**
-- open the app → **Settings → API Keys → Codex CLI → Connect Codex**, which walks you through a device-code login — visit the printed URL and enter the code, no terminal needed.
-
-> ⚠️ Starting a new login (either way) immediately invalidates any existing session on that machine — the CLI clears old credentials the moment a login attempt begins, whether or not it's ever completed. Only start one when the status badge below shows **NOT CONFIGURED**.
-
-### 4. Enable it for GPT Image 2
-
-In **Settings → Image Models**, set GPT Image 2's provider toggle to **Codex CLI**. The status badge in **Settings → API Keys** shows **READY** once both the CLI and login are in place.
-
----
-
-# 🛠️ Build from source
-
-Prefer to build it yourself, or need a platform that isn't on the releases page
-yet? The whole app builds from this repo.
-
-Tauri does **not** cross-compile — build on the OS you want to target. Run
-`npm run desktop:build` on a Mac for the macOS build, on Windows for Windows,
-on Linux for Linux.
-
-> **Want to help ship Windows / Linux builds?** Build on that OS and send the
-> artifacts (PR or issue attachment) — they'll be added to the next release,
-> with credit.
-
-## Prerequisites (one-time, all platforms)
-
-| Tool | Notes |
+| Command | What it does |
 | --- | --- |
-| **Node 22+** | The bundled server uses `node:sqlite`. `nvm use 22`. |
-| **Rust** | `curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs \| sh` |
-| **Tauri system deps** | See <https://v2.tauri.app/start/prerequisites/> |
+| `pnpm dev` | Dev server on port 3000 |
+| `pnpm build` | Production build |
+| `pnpm start` | Serve the production build |
+| `pnpm brand` | Rebuild the icons and OG card in `public/` |
 
-Platform-specific system deps:
+---
 
-- **macOS** — Xcode Command Line Tools: `xcode-select --install`
-- **Windows** — [Microsoft C++ Build Tools](https://visualstudio.microsoft.com/visual-cpp-build-tools/)
-  (Desktop development with C++) and [WebView2](https://developer.microsoft.com/microsoft-edge/webview2/)
-  (preinstalled on Windows 11)
-- **Linux** — `webkit2gtk-4.1`, `librsvg2`, `build-essential`, `curl`, `wget`,
-  `file`, `libssl-dev`, `libayatana-appindicator3-dev` (Debian/Ubuntu package
-  names; see the Tauri prerequisites page for other distros)
+## Layout
 
-## Build
-
-```bash
-git clone https://github.com/SegFault42/HeliosGen
-cd HeliosGen
-npm install
-npm run desktop:build
+```
+src/
+  app/          /  is the full-viewport studio and the only page
+                /api/blob issues upload tokens
+                base.css owns the document canvas
+  generation/   generate requests, server actions, API mapping, catalog, stores
+  openhiggsfield/
+                the studio surface: composer, gallery, viewer, model picker,
+                settings, asset picker, selection bar — and openhiggsfield.css
 ```
 
-Artifacts land in `src-tauri/target/release/bundle/`:
-
-| OS | Output |
-| --- | --- |
-| macOS | `macos/HeliosGen.app`, `dmg/HeliosGen_<ver>_<arch>.dmg` |
-| Windows | `msi/HeliosGen_<ver>_x64_en-US.msi`, `nsis/HeliosGen_<ver>_x64-setup.exe` |
-| Linux | `deb/`, `rpm/`, `appimage/HeliosGen_<ver>_amd64.AppImage` |
-
-The macOS build is **unsigned** — on first launch Gatekeeper blocks it.
-Right-click → Open, or `xattr -cr "src-tauri/target/release/bundle/macos/HeliosGen.app"`.
-
-## Develop (hot reload)
-
-```bash
-npm run desktop:dev
-```
-
-Runs `next dev` and `tauri dev` together. The first run compiles the Rust shell
-(~1–2 min).
-
-See [`DESKTOP.md`](DESKTOP.md) for architecture, data locations, and signing &
-notarization.
-
 ---
 
-# 🤝 Contributions
+## Design principles
 
-Contributions are welcome.
+Dark studio ground, a single lime accent `#d1fe17`, Inter throughout. The chrome
+stays neutral so the generated work is the only color on the surface.
 
-If you find a bug, have an idea, or want to improve HeliosGen:
-- Open an issue
-- Submit a pull request
-- Share feedback or feature requests
+1. **The tool disappears into the task** — expression never obscures state or
+   affordance.
+2. **Accent is state, not decoration** — selection, primary action, liveness only.
+3. **Data is data** — settings, counts and durations read in tabular numerals.
+   One typeface throughout; no monospace anywhere.
+4. **Motion conveys state** — the generation lifecycle, the arrival of a run.
+   Nothing loops decoratively.
+5. **Every control ships all its states** — hover, focus, active, disabled,
+   loading, error, empty.
+6. **The catalog is the source of truth** — the studio renders what the model
+   declares, never a parallel hardcoded list.
 
-All contributions are appreciated.
-
----
-
-# 📄 License
-
-MIT License
-
----
-
-<p align="center">
-  Built for creators building the future of AI workflows.
-</p>
-
+Built for people who work in long sessions, iterating on prompts, inputs and
+settings.

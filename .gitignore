@@ -1,67 +1,14 @@
-# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
-
-# dependencies
-/node_modules
-/.pnp
-.pnp.*
-.yarn/*
-!.yarn/patches
-!.yarn/plugins
-!.yarn/releases
-!.yarn/versions
-
-# testing
-/coverage
-
-# next.js
-/.next/
-/out/
-
-# production
-/build
-
-# misc
+node_modules
 .DS_Store
-*.pem
-
-# debug
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-.pnpm-debug.log*
-
-# env files (can opt-in for committing if needed)
-.env*
+.next
+out
+dist
+*.local
+.env
+.env.*
 !.env.example
-
-# vercel
 .vercel
+tsconfig.tsbuildinfo
 
-# typescript
-*.tsbuildinfo
-next-env.d.ts
-.job-store.json
-.codex-login-store.json
-
-# Guest mode — local DB and generated media
-/data/*.json
-/data/*.db
-/data/*.db-shm
-/data/*.db-wal
-/public/generated/**
-!/public/generated/.gitkeep
-
-# Tauri desktop build artifacts
-/src-tauri/target/
-/src-tauri/loader/target/
-/src-tauri/gen/
-/src-tauri/server/
-/src-tauri/binaries/
-# Mobile icon sets Tauri regenerates on build — desktop-only project
-/src-tauri/icons/android/
-/src-tauri/icons/ios/
-/src-tauri/icons/Square*Logo.png
-/src-tauri/icons/StoreLogo.png
-# Signing / notarization secrets
-/scripts/desktop/sign.env
-/src-tauri/.node-cache/
+.env*
+.idea
