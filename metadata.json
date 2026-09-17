@@ -1,5 +1,11 @@
 {
-  "name": "Suno Clone UI",
-  "description": "A high-fidelity recreation of the Suno AI music generation interface using React, Tailwind CSS, and Gemini for lyric generation.",
-  "requestFramePermissions": []
+  "name": "Remote Record Sync",
+  "description": "A remote recording interface for DAWs with video chat and low-latency audio routing.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone"
+  ],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
 }
